@@ -1,8 +1,9 @@
-.border {
-    border: 1px solid pink;
-}
+/*.border {*/
+    /*border: 1px solid pink;*/
+/*}*/
 
 .container {
     min-width: 30%;
     max-width: 30%;
+    border: 1px solid pink;
 }

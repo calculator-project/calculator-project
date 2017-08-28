@@ -2,8 +2,7 @@
 
 "use strict";
 
-
-
+// Assigning variable names to
 var leftOperand = document.getElementById("left-operand");
 var rightOperand = document.getElementById("right-operand");
 var operatorVar = document.getElementById("operatorId");
@@ -25,41 +24,46 @@ var btnEqual = document.getElementById("btn-equal");
 var btnDivide = document.getElementById("btn-divide");
 
 
-var btn = document.getElementsByClassName("button");
+var numBtn = document.getElementsByClassName("number");
+var operBtn = document.getElementsByClassName("operatorClass");
 
 
 
 var leftInput = function(){
     leftOperand.innerHTML += this.innerHTML;
+console.log(operatorVar.innerHTML);
 }
 
 var middleInput = function(){
     operatorVar.innerHTML = this.innerHTML;
 }
 
-    for (var i = 0; i < btn.length; i++) {
+var rightInput = function (){
+    rightOperand.innerHTML += this.innerHTML;
+console.log("false");
+}
 
-    // if (btn[i].getAttribute("class") == "operatorClass") {
+    for (var i = 0; i < numBtn.length; i++) {
+        if(operatorVar.innerText === ""){
+            numBtn[i].addEventListener("click", leftInput, false);
+        } else {
+            numBtn[i].addEventListener("click", rightInput, false);
+        }
 
-        if(btn[i].innerHTML == "+" || btn[i].innerHTML == "-" || btn[i].innerHTML == "*" || btn[i].innerHTML == "/") {
-        btn[i].addEventListener("click", middleInput, false);
 
-    } else if (btn[i].getAttribute("class") == "number") {
-        btn[i].addEventListener("click", leftInput, false);
-    } else {
-        console.log("Oops..");
-    }
 
-        // switch(document.getElementsByClassName(btn[i])) {
-        //     case "operator":
-        //         operator.innerHTML = btn[i].innerHTML;
-        //         break;
-        //     case ""
+            // if (operatorVar.innerHTML) {
+            //     btn[i].addEventListener("click", rightInput, false);
+            // }
+
+        // } else {
+        // console.log("Oops..");
         // }
-
-
     }
 
+    for (var i = 0; i < operBtn.length; i++) {
+        operBtn[i].addEventListener("click", middleInput, false);
+    }
 
 })();
 
