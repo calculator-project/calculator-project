@@ -2,7 +2,7 @@
 
 "use strict";
 
-// Assigning variable names to
+// Assigning variable names to buttons
 var leftOperand = document.getElementById("left-operand");
 var rightOperand = document.getElementById("right-operand");
 var operatorVar = document.getElementById("operatorId");
@@ -28,35 +28,52 @@ var numBtn = document.getElementsByClassName("number");
 var operBtn = document.getElementsByClassName("operatorClass");
 
 
-
-var leftInput = function(){
-    leftOperand.value += this.value;
+// Appending numbers to leftOperand
+var leftInput = function(btn){
+    leftOperand.value += btn.value;
 }
+
 
 var middleInput = function(){
     operatorVar.value = this.value;
 }
 
-var rightInput = function (){
-    rightOperand.value += this.value;
+// Appending numbers to rightOperand
+var rightInput = function (btn){
+    rightOperand.value += btn.value;
 }
 
+var path = function () {
+    if (operatorVar.value === "") {
+        leftInput (this);
+    } else if (leftOperand.value !== "" && operatorVar.value !== "") {
+        rightInput (this);
+    }
+}
 
-        for (var i = 0; i < operBtn.length; i++) {
-            operBtn[i].addEventListener("click", middleInput, false);
-        }
+// var clear = function () {
+//     rightOperand.innerHTML = "";
+//     leftOperand.innerHTML = "";
+//     operatorVar.innerHTML = "";
+// }
+// // Functionality for the clear button
+//     btnClear.addEventListener("click", clear, false);
 
-        for (var i = 0; i < numBtn.length; i++) {
-
-        if(operatorVar.value == "") {
-            numBtn[i].addEventListener("click", rightInput, false);
-            console.log(operatorVar.value);
-        } else {
-            numBtn[i].addEventListener("click", leftInput, false);
-            console.log(operatorVar.value);
-        }
+// Functionality for the operator buttons
+    for (var i = 0; i < operBtn.length; i++) {
+        operBtn[i].addEventListener("click", middleInput, false);
     }
 
+// Functionality for the number buttons
+    for (var i = 0; i < numBtn.length; i++) {
+        numBtn[i].addEventListener("click", path, false);
+    }
+
+
+
+
+
+// Functionality for the equal button
 
 
 
