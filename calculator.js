@@ -1,4 +1,4 @@
-(function () {
+// (function () {
 
 "use strict";
 
@@ -30,40 +30,35 @@ var operBtn = document.getElementsByClassName("operatorClass");
 
 
 var leftInput = function(){
-    leftOperand.innerHTML += this.innerHTML;
-console.log(operatorVar.innerHTML);
+    leftOperand.value += this.value;
 }
 
 var middleInput = function(){
-    operatorVar.innerHTML = this.innerHTML;
+    operatorVar.value = this.value;
 }
 
 var rightInput = function (){
-    rightOperand.innerHTML += this.innerHTML;
-console.log("false");
+    rightOperand.value += this.value;
 }
 
-    for (var i = 0; i < numBtn.length; i++) {
-        if(operatorVar.innerText === ""){
-            numBtn[i].addEventListener("click", leftInput, false);
-        } else {
-            numBtn[i].addEventListener("click", rightInput, false);
+
+        for (var i = 0; i < operBtn.length; i++) {
+            operBtn[i].addEventListener("click", middleInput, false);
         }
 
+        for (var i = 0; i < numBtn.length; i++) {
 
-
-            // if (operatorVar.innerHTML) {
-            //     btn[i].addEventListener("click", rightInput, false);
-            // }
-
-        // } else {
-        // console.log("Oops..");
-        // }
+        if(operatorVar.value == "") {
+            numBtn[i].addEventListener("click", rightInput, false);
+            console.log(operatorVar.value);
+        } else {
+            numBtn[i].addEventListener("click", leftInput, false);
+            console.log(operatorVar.value);
+        }
     }
 
-    for (var i = 0; i < operBtn.length; i++) {
-        operBtn[i].addEventListener("click", middleInput, false);
-    }
 
-})();
+
+
+// })();
 
