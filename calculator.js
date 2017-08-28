@@ -51,13 +51,13 @@ var path = function () {
     }
 }
 
-// var clear = function () {
-//     rightOperand.innerHTML = "";
-//     leftOperand.innerHTML = "";
-//     operatorVar.innerHTML = "";
-// }
-// // Functionality for the clear button
-//     btnClear.addEventListener("click", clear, false);
+var clear = function () {
+    rightOperand.innerHTML = "";
+    leftOperand.innerHTML = "";
+    operatorVar.innerHTML = "";
+}
+// Functionality for the clear button
+    btnClear.addEventListener("click", clear, false);
 
 // Functionality for the operator buttons
     for (var i = 0; i < operBtn.length; i++) {
