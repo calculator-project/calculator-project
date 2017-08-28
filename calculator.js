@@ -6,7 +6,7 @@
 
 var leftOperand = document.getElementById("left-operand");
 var rightOperand = document.getElementById("right-operand");
-var operator = document.getElementById("operator");
+var operatorVar = document.getElementById("operatorId");
 var btn1 = document.getElementById("btn1");
 var btn2 = document.getElementById("btn2");
 var btn3 = document.getElementById("btn3");
@@ -27,14 +27,39 @@ var btnDivide = document.getElementById("btn-divide");
 
 var btn = document.getElementsByClassName("button");
 
-for (var i = 0; i < btn.length; i++) {
-    btn[i].addEventListener("click", function (){
-        console.log(btn.innerHTML = this.innerHTML);
-        // console.log(this);
-    }, false);
+
+
+var leftInput = function(){
+    leftOperand.innerHTML += this.innerHTML;
 }
 
+var middleInput = function(){
+    operatorVar.innerHTML = this.innerHTML;
+}
 
+    for (var i = 0; i < btn.length; i++) {
+
+    // if (btn[i].getAttribute("class") == "operatorClass") {
+
+        if(btn[i].innerHTML == "+" || btn[i].innerHTML == "-" || btn[i].innerHTML == "*" || btn[i].innerHTML == "/") {
+        btn[i].addEventListener("click", middleInput, false);
+
+    } else if (btn[i].getAttribute("class") == "number") {
+        btn[i].addEventListener("click", leftInput, false);
+    } else {
+        console.log("Oops..");
+    }
+
+        // switch(document.getElementsByClassName(btn[i])) {
+        //     case "operator":
+        //         operator.innerHTML = btn[i].innerHTML;
+        //         break;
+        //     case ""
+        // }
+
+
+    }
 
 
 })();
+
