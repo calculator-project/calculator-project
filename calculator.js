@@ -51,13 +51,15 @@ var path = function () {
     }
 }
 
-var clear = function () {
-    rightOperand.innerHTML = "";
-    leftOperand.innerHTML = "";
-    operatorVar.innerHTML = "";
-}
 // Functionality for the clear button
+var clear = function () {
+    rightOperand.value = "";
+    leftOperand.value = "";
+    operatorVar.value = "";
+}
     btnClear.addEventListener("click", clear, false);
+
+
 
 // Functionality for the operator buttons
     for (var i = 0; i < operBtn.length; i++) {
@@ -70,12 +72,29 @@ var clear = function () {
     }
 
 
-
-
-
 // Functionality for the equal button
 
+    var leftValue = leftOperand.value;
+    var rightValue = rightOperand.value;
 
+    var result = function () {
+        switch (operatorVar.value) {
+            case "+":
+                console.log(parseInt(leftValue) + parseInt(rightValue));
+                break;
+            case "-":
+                // console.log(parseInt(leftValue) - parseInt(rightValue));
+                break;
+            case "*":
+                result = parseInt(leftValue) * parseInt(rightValue);
+                break;
+            case "/":
+                result = parseInt(leftValue) / parseInt(rightValue);
+                break;
+        }
+    }
+
+    btnEqual.addEventListener("click", result, false);
 
 // })();
 
