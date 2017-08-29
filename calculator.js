@@ -6,16 +6,12 @@
 var leftOperand = document.getElementById("left-operand");
 var rightOperand = document.getElementById("right-operand");
 var operatorVar = document.getElementById("operatorId");
-var btnPlus = document.getElementById("btn-plus");
-var btnMinus = document.getElementById("btn-minus");
-var btnMultiply = document.getElementById("btn-multiply");
+
 var btnClear = document.getElementById("btn-clear");
 var btnEqual = document.getElementById("btn-equal");
-var btnDivide = document.getElementById("btn-divide");
 var btnPercent = document.getElementById("btn-percent");
 var btnSqrt = document.getElementById("btn-sqrt");
 var btnSqrd = document.getElementById("btn-squared");
-
 
 var numBtn = document.getElementsByClassName("number");
 var operBtn = document.getElementsByClassName("operatorClass");
@@ -67,9 +63,6 @@ for (var i = 0; i < numBtn.length; i++) {
 
 // Functionality for the equal button
 
-var leftValue = leftOperand.value;
-var rightValue = rightOperand.value;
-
 var result = function () {
     switch (operatorVar.value) {
         case "+":
@@ -78,7 +71,7 @@ var result = function () {
         case "-":
             result = (parseFloat(leftOperand.value) - parseFloat(rightOperand.value));
             break;
-        case "*":
+        case "X":
             result = parseFloat(leftOperand.value) * parseFloat(rightOperand.value);
             break;
         case "/":
@@ -91,21 +84,7 @@ var result = function () {
 
 btnEqual.addEventListener("click", result, false);
 
-
-// Functionality for the percent button
-
-// var specialResult = function () {
-//     for (var i = 0; i < specialBtn.length; i++) {
-//         specialBtn[i].addEventListener("click", path, false);
-//
-//         switch (specialBtn[i].value) {
-//             case "%":
-//                 percentResult();
-//                 break;
-//         }
-//     }
-// }
-
+// Functionality for percent button
 
 var percentResult = function () {
 
