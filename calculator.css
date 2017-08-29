@@ -1,5 +1,8 @@
 * {
     text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -8,22 +11,22 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-family: 'VT323', monospace;
+    font-size: 17px;
+
 }
 
 h1 {
     /*font-family: 'Fredericka the Great', cursive;*/
     /*font-family: 'Annie Use Your Telescope', cursive;*/
     /*font-family: 'Nova Square', cursive;*/
-    font-family: 'Kranky', cursive;
-    /*font-family: 'Zeyada', cursive;*/
+    /*font-family: 'Kranky', cursive;*/
+    font-family: 'Zeyada', cursive;
+    letter-spacing: 6px;
+    text-shadow: 2px 2px #000;
+    color: #fff;
 }
 
-.fade {
-    background-color: white;
-    opacity: 0.2;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.4);
-}
 .container {
     padding: 10%;
 }
