@@ -12,11 +12,14 @@ var btnMultiply = document.getElementById("btn-multiply");
 var btnClear = document.getElementById("btn-clear");
 var btnEqual = document.getElementById("btn-equal");
 var btnDivide = document.getElementById("btn-divide");
+var btnPercent = document.getElementById("btn-percent");
+var btnSqrt = document.getElementById("btn-sqrt");
+var btnSqrd = document.getElementById("btn-squared");
 
 
 var numBtn = document.getElementsByClassName("number");
 var operBtn = document.getElementsByClassName("operatorClass");
-
+var specialBtn = document.getElementsByClassName("special");
 
 // Appending numbers to leftOperand
 var leftInput = function(btn){
@@ -70,16 +73,16 @@ var rightValue = rightOperand.value;
 var result = function () {
     switch (operatorVar.value) {
         case "+":
-            result = (parseInt(leftOperand.value) + parseInt(rightOperand.value));
+            result = (parseFloat(leftOperand.value) + parseFloat(rightOperand.value));
             break;
         case "-":
-            result = (parseInt(leftOperand.value) - parseInt(rightOperand.value));
+            result = (parseFloat(leftOperand.value) - parseFloat(rightOperand.value));
             break;
         case "*":
-            result = parseInt(leftOperand.value) * parseInt(rightOperand.value);
+            result = parseFloat(leftOperand.value) * parseFloat(rightOperand.value);
             break;
         case "/":
-            result = parseInt(leftOperand.value) / parseInt(rightOperand.value);
+            result = parseFloat(leftOperand.value) / parseFloat(rightOperand.value);
             break;
     }
     clear();
@@ -88,6 +91,56 @@ var result = function () {
 
 btnEqual.addEventListener("click", result, false);
 
+
+// Functionality for the percent button
+
+// var specialResult = function () {
+//     for (var i = 0; i < specialBtn.length; i++) {
+//         specialBtn[i].addEventListener("click", path, false);
+//
+//         switch (specialBtn[i].value) {
+//             case "%":
+//                 percentResult();
+//                 break;
+//         }
+//     }
+// }
+
+
+var percentResult = function () {
+
+    if (operatorVar.value === "") {
+        leftOperand.value /= 100;
+    } else if (leftOperand.value !== "" && operatorVar.value !== "") {
+        rightOperand.value /= 100;
+    }
+}
+
+btnPercent.addEventListener("click", percentResult, false);
+
+// Functionality for the sqrt button
+
+var sqrt = function () {
+    if (operatorVar.value === "") {
+        leftOperand.value = Math.sqrt(leftOperand.value);
+    } else if (leftOperand.value !== "" && operatorVar.value !== "") {
+        rightOperand.value = Math.sqrt(rightOperand.value);
+    }
+}
+
+btnSqrt.addEventListener("click", sqrt, false);
+
+// Functionality for the exponent button
+
+var squared = function () {
+    if (operatorVar.value === "") {
+        leftOperand.value = Math.pow(leftOperand.value, 2);
+    } else if (leftOperand.value !== "" && operatorVar.value !== "") {
+        rightOperand.value = Math.pow(rightOperand.value, 2);
+    }
+}
+
+btnSqrd.addEventListener("click", squared, false);
 
 // })();
 
